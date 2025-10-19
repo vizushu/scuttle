@@ -3,8 +3,8 @@ import os
 import logging
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
-from worker.core.download_processor import DownloadProcessor
-from worker.core.database import init_db
+from core.download_processor import DownloadProcessor
+from core.database import init_db
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
