@@ -9,11 +9,11 @@ RUN apt-get update && \
 WORKDIR /app
 
 # Copy requirements and install dependencies
-COPY worker/requirements.txt .
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy worker code
-COPY worker/ ./worker/
+COPY . ./worker/
 
 # Expose port
 EXPOSE 8000
