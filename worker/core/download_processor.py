@@ -3,8 +3,8 @@ import logging
 import yt_dlp
 from datetime import datetime
 from typing import Optional
-from worker.core.database import get_db_connection
-from worker.core.blob_uploader import upload_to_blob
+from core.database import get_db_connection
+from core.blob_uploader import upload_to_blob
 
 logger = logging.getLogger(__name__)
 
