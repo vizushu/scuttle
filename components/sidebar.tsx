@@ -2,12 +2,14 @@
 
 import { useState } from "react"
 import useSWR from "swr"
-import { Music, Heart, ListMusic, Plus, Settings } from "lucide-react"
+import { Music, Heart, ListMusic, Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { ThemeToggle } from "@/components/theme-toggle"
+import Image from "next/image"
 import { toast } from "sonner"
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
@@ -44,32 +46,39 @@ export function Sidebar() {
   }
 
   return (
-    <div className="w-64 border-r bg-card flex flex-col">
-      <div className="p-6 border-b">
-        <h1 className="text-2xl font-bold flex items-center gap-2">
-          <Music className="h-6 w-6" />
-          Scuttle
-        </h1>
+    <div className="w-full md:w-64 border-r bg-card flex flex-col">
+      <div className="p-4 md:p-6 border-b flex items-center justify-between md:justify-between">
+        <div className="flex items-center gap-3 mx-auto md:mx-0">
+          <Image
+            src="/scuttle-logo.png"
+            alt="Scuttle"
+            width={120}
+            height={40}
+            className="h-8 w-auto"
+            style={{ background: "transparent" }}
+          />
+        </div>
+        <ThemeToggle className="hidden md:flex" />
       </div>
 
       <ScrollArea className="flex-1">
-        <div className="p-4 space-y-4">
+        <div className="p-3 md:p-4 space-y-4">
           {/* Main Navigation */}
           <div className="space-y-1">
             <Button variant="ghost" className="w-full justify-start">
               <Music className="mr-2 h-4 w-4" />
-              Library
+              <span className="hidden md:inline">Library</span>
             </Button>
             <Button variant="ghost" className="w-full justify-start">
               <Heart className="mr-2 h-4 w-4" />
-              Liked Songs
+              <span className="hidden md:inline">Liked Songs</span>
             </Button>
           </div>
 
           {/* Playlists */}
           <div>
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-medium text-muted-foreground">Playlists</h3>
+              <h3 className="text-sm font-medium text-muted-foreground hidden md:block">Playlists</h3>
               <Dialog open={isCreateOpen} onOpenChange={setIsCreateOpen}>
                 <DialogTrigger asChild>
                   <Button variant="ghost" size="icon" className="h-6 w-6">
@@ -102,20 +111,13 @@ export function Sidebar() {
               {playlists.map((playlist) => (
                 <Button key={playlist.id} variant="ghost" className="w-full justify-start">
                   <ListMusic className="mr-2 h-4 w-4" />
-                  {playlist.name}
+                  <span className="hidden md:inline truncate">{playlist.name}</span>
                 </Button>
               ))}
             </div>
           </div>
         </div>
       </ScrollArea>
-
-      <div className="p-4 border-t">
-        <Button variant="ghost" className="w-full justify-start">
-          <Settings className="mr-2 h-4 w-4" />
-          Settings
-        </Button>
-      </div>
     </div>
   )
 }
