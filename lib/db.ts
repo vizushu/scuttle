@@ -1,12 +1,35 @@
 import { neon } from "@neondatabase/serverless"
 
-const databaseUrl = process.env.NEON_NEON_DATABASE_URL || process.env.DATABASE_URL
+let _sql: ReturnType<typeof neon> | null = null
 
-if (!databaseUrl) {
-  throw new Error("NEON_DATABASE_URL environment variable is not set")
-}
+export const sql = new Proxy({} as ReturnType<typeof neon>, {
+  get(target, prop) {
+    if (!_sql) {
+      const databaseUrl = process.env.NEON_NEON_NEON_DATABASE_URL || process.env.DATABASE_URL
 
-export const sql = neon(databaseUrl)
+      if (!databaseUrl) {
+        throw new Error("NEON_DATABASE_URL environment variable is not set")
+      }
+
+      _sql = neon(databaseUrl)
+    }
+
+    return _sql[prop as keyof typeof _sql]
+  },
+  apply(target, thisArg, args) {
+    if (!_sql) {
+      const databaseUrl = process.env.NEON_NEON_DATABASE_URL || process.env.DATABASE_URL
+
+      if (!databaseUrl) {
+        throw new Error("NEON_DATABASE_URL environment variable is not set")
+      }
+
+      _sql = neon(databaseUrl)
+    }
+
+    return (_sql as any)(...args)
+  },
+})
 
 // Database schema types
 export interface Track {
