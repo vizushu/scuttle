@@ -1,4 +1,3 @@
-
 export function setLayoutMobile() {
     document.body.classList.add("mobile");
 }

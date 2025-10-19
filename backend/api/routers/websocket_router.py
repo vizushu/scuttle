@@ -20,5 +20,4 @@ async def websocket(websocket: WebSocket):
     except WebSocketDisconnect:
         pass
     finally:
-        websocket_manager.disconnect(websocket) 
-
+        websocket_manager.disconnect(websocket)

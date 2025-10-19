@@ -273,6 +273,3 @@ async def get_queue_content(req: Request) -> JSONResponse:
     
 
 #@router.get("/clear")
-
-
-

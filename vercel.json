@@ -1,0 +1,10 @@
+{
+  "queues": [
+    {
+      "name": "download-queue",
+      "consumer": "/api/queue/process",
+      "maxConcurrency": 3,
+      "maxRetries": 2
+    }
+  ]
+}

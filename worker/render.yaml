@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: scuttle-worker
+    env: python
+    buildCommand: pip install -r worker/requirements.txt
+    startCommand: uvicorn worker.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: NEON_DATABASE_URL
+        sync: false
+      - key: BLOB_READ_WRITE_TOKEN
+        sync: false
+      - key: PYTHON_VERSION
+        value: 3.11.0

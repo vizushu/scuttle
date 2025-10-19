@@ -80,6 +80,3 @@ async def test_robust_search(tmp_path: Path):
 
     for i, track in enumerate(results):
         assert isinstance(track, Track), f"Result {i} is not a Track"
-
-
-

@@ -23,4 +23,3 @@ class CachingFailError(Exception):
 class DownloadLogFailError(Exception):
     """Raised when a sql download logging attempt fails."""
     pass
-

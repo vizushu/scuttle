@@ -22,5 +22,3 @@ class PlaylistExtractorManager:
         #failed to find an extractor
         print("Failed to find an appropriate extractor")
         return []
-    
-        

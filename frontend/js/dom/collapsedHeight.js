@@ -26,4 +26,3 @@ function measureCollapsedHeight() {
 }
 
 export const collapsedHeight = measureCollapsedHeight();
-

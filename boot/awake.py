@@ -101,5 +101,4 @@ def allow_sleep(proc, verbose=False):
 
     #logging
     vprint(f"[allow_sleep] successful", verbose)
-    return 
-        
+    return

@@ -339,4 +339,3 @@ async function onCreatePlaylist(customPlaylistEl, createPlaylistInputEl, importP
         await createPlaylist(tempId, name, importUrl);
     }
 }
-

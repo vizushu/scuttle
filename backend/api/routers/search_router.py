@@ -90,6 +90,3 @@ async def download_search(req: Request, q: str):
     await download_queue.push(job)
 
     return JSONResponse(content={"status": "queued"}, status_code=200)
-
-
-

@@ -384,6 +384,3 @@ export function setupSwipeEventListeners() {
 
     console.log("Swipe listener active");
 }
-
-
-

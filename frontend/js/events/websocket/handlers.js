@@ -230,7 +230,3 @@ function handleADFetchLikes(payload) {
     LikeStore.setAll(payload.content);
     renderLiked();
 }
-
-
-
-

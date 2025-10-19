@@ -82,4 +82,3 @@ class ObservableQueue(Generic[T], ABC):
             else:
                 result.append(item)
         return result
-

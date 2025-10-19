@@ -23,7 +23,3 @@ export function renderSearch(tracks) {
 export {
     setClearInput
 } from "./lib/ui.js";
-
-
-
-

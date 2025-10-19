@@ -66,5 +66,3 @@ import { loadTrack as rawLoadTrack } from "./lib/streamTrick.js";
 export async function loadTrack(trackId) {
     await rawLoadTrack(audioEl, trackId);
 }
-
-

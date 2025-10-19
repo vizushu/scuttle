@@ -44,9 +44,3 @@ export function renderQueueList(queueListEl, tracks) {
         queueListEl.appendChild(item);
     });
 }
-
-
-
-
-
-

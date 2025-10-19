@@ -117,4 +117,3 @@ class DoublyLinkedList(Generic[T]):
 
     def contains(self, item: T) -> bool:
         return any(x == item for x in self)
-

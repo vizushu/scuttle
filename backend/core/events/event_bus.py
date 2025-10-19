@@ -64,5 +64,3 @@ class EventBus:
                     await result
             except Exception as e:
                 print(f"Error in handler for {event.source}.{event.action}: {e}")
-
-        

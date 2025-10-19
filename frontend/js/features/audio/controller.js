@@ -294,6 +294,3 @@ export function commitScrubSeek() {
 
     isSeeking = false;
 }
-
-
-
